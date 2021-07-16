@@ -1,3 +1,4 @@
+import Button from 'components/Button';
 import NavItem from 'components/NavItem';
 import { FaTwitter } from 'react-icons/fa';
 import navItemData from './data';
@@ -13,9 +14,16 @@ const Navigation = () => {
   return (
     <nav className={styles.nav}>
       {/* brand */}
-      <FaTwitter />
-      <h1>nav</h1>
+      <span className={styles.brand}>
+        <FaTwitter />
+      </span>
       {renderNavItems()}
+
+      <div className={styles.btnContainer}>
+        <Button variant="primary" size="lg">
+          Tweetle
+        </Button>
+      </div>
     </nav>
   );
 };

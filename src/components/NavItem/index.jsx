@@ -1,12 +1,12 @@
-/* eslint-disable */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
+import IconComponent from 'components/IconComponent';
 import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 
 const NavItem = ({ SvgComp, title }) => {
-  const type = SvgComp.slice(0, 2).toLowerCase();
-  const ICON = require(/* webpackIgnore: true */ `react-icons/${type}`);
-  const RenderIcon = ICON[SvgComp];
+  const { RenderIcon } = IconComponent(SvgComp);
 
   if (!RenderIcon) return null;
 
