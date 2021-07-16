@@ -1,0 +1,49 @@
+.dFlex {
+  margin-bottom: 12px;
+  margin-top: 12px;
+  padding: 12px;
+
+  user-select: none;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: all 300ms ease-in-out;
+  border-radius: 9999px;
+
+  &:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+  }
+
+  .img {
+    img {
+      width: 40px;
+      border-radius: 50%;
+    }
+  }
+
+  .text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Helvetica, Arial, sans-serif;
+    font-size: 15px;
+
+    strong {
+      font-weight: bold;
+    }
+
+    span {
+      color: rgb(136, 153, 166);
+    }
+  }
+
+  .more {
+    padding-left: 8px;
+  }
+}

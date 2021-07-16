@@ -1,8 +1,13 @@
 .header {
   width: 604px;
   padding-inline: 12px;
+  height: 100vh;
+
+  position: fixed;
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
   max-width: 251px;
 }
