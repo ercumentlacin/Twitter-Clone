@@ -1,9 +1,13 @@
-const { default: Header } = require('components/Header');
+import Header from 'components/Header';
+import Feed from 'components/Feed';
+
+import styles from './app.module.scss';
 
 function App() {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Header />
+      <Feed />
     </div>
   );
 }
