@@ -1,4 +1,5 @@
 import { RiMoreLine } from 'react-icons/ri';
+import TweetButtons from './TweetButtons';
 import styles from './styles.module.scss';
 
 const TweetArea = () => {
@@ -19,6 +20,17 @@ const TweetArea = () => {
           <div className={styles.more}>
             <RiMoreLine />
           </div>
+        </div>
+
+        <div className={styles.messagesArea}>
+          <article>
+            What should I learn next? What should I prioritize learning?
+            Don&apos;t try to learn anything. Pick a framework (React, Vue,
+            Angular). Build that side project that you always wanted to build,
+            see it through. Don&apos;t get distracted with the new shiny thing.
+            Pick one, build, learn.
+          </article>
+          <TweetButtons />
         </div>
       </div>
     </div>

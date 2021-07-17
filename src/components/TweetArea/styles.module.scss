@@ -3,6 +3,9 @@
   padding: 4px 16px;
   display: flex;
   width: 100%;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(56, 68, 77);
 
   .imgArea {
     padding-top: 4px;
@@ -79,5 +82,19 @@
         }
       }
     }
+
+    .messagesArea {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      article {
+        line-height: 20px;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.03);
   }
 }

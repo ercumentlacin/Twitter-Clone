@@ -1,0 +1,78 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: 425px;
+  margin-top: 12px;
+
+  .button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    & .icon {
+      height: 34.75px;
+      width: 34.75px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        font-size: 18.75px;
+      }
+    }
+
+    & > .count {
+      margin-left: 5px;
+    }
+
+    & > .icon,
+    .count {
+      user-select: none;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.message,
+.share {
+  &:hover {
+    .icon {
+      background-color: rgba(29, 161, 242, 0.1);
+    }
+
+    .icon,
+    .count {
+      color: rgba(29, 161, 242, 1);
+    }
+  }
+}
+
+.retweet {
+  &:hover {
+    .icon {
+      background-color: rgba(23, 191, 99, 0.1);
+    }
+
+    .icon,
+    .count {
+      color: rgba(23, 191, 99, 1);
+    }
+  }
+}
+
+.like {
+  &:hover {
+    .icon {
+      background-color: rgba(224, 36, 94, 0.1);
+    }
+
+    .icon,
+    .count {
+      color: rgba(224, 36, 94, 1);
+    }
+  }
+}
