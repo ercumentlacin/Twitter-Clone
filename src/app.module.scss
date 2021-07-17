@@ -1,3 +1,11 @@
 .wrapper {
   display: flex;
+
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 990px;
+  }
 }
