@@ -8,8 +8,10 @@ function App() {
   return (
     <div className={styles.wrapper}>
       <Header />
-      <Feed />
-      <Widgets />
+      <div className={styles.main}>
+        <Feed />
+        <Widgets />
+      </div>
     </div>
   );
 }

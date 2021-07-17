@@ -1,0 +1,48 @@
+@import 'mixins';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 12px;
+  width: 350px;
+  min-height: 32px;
+  height: 53px;
+  border-radius: 9999px;
+  margin-top: 5px;
+
+  background-color: rgb(37, 51, 65);
+  color: rgb(136, 153, 166);
+  border: 1px solid transparent;
+
+  transition: all 0.3s ease-in-out;
+
+  .icon {
+    @include centerForce;
+    svg {
+      padding-left: 12px;
+      box-sizing: content-box;
+      font-size: 18.75px;
+    }
+  }
+
+  .input {
+    @include centerForce;
+    flex: 1;
+
+    input {
+      width: 100%;
+      padding: 12px;
+
+      color: #fff;
+      font: 400 13.3333px Arial;
+    }
+  }
+
+  &:focus-within,
+  &:active,
+  &:target {
+    color: rgb(29, 161, 242);
+    border-color: rgb(29, 161, 242);
+  }
+}
