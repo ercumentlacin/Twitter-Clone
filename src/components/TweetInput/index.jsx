@@ -30,6 +30,9 @@ const TweetInput = () => {
       message: tweet.message,
       photoUrl: '',
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      like: [],
+      retweet: [],
+      comment: [],
     });
 
     setTweet(INITIAL_TWEET_STATE);
