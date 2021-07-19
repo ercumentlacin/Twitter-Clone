@@ -9,17 +9,29 @@ const Feed = () => {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
-    db.collection('tweets').onSnapshot((snapshot) =>
-      setTweets(
-        snapshot.docs.map((t) => ({
-          id: t.id,
-          data: t.data(),
-        }))
-      )
+    db.collection('tweets').onSnapshot(
+      (snapshot) => {
+        return setTweets(
+          snapshot.docs.map((t) => ({
+            id: t.id,
+            data: t.data(),
+          }))
+        );
+      },
+      (error) => console.error(error),
+      (onCompletion) => console.log(onCompletion)
     );
   }, []);
 
-  console.log('tweets', tweets);
+  function renderTweets() {
+    if (tweets.length) {
+      const tweetsSortedTıme = tweets?.sort(
+        (a, b) => b?.data.timestamp.toDate() - a?.data.timestamp.toDate()
+      );
+      return tweetsSortedTıme.map((v) => <TweetArea key={v.id} {...v} />);
+    }
+    return null;
+  }
 
   return (
     <main className={styles.wrapper}>
@@ -29,7 +41,7 @@ const Feed = () => {
 
       <div className={styles.clear} />
 
-      <TweetArea />
+      {renderTweets()}
     </main>
   );
 };
