@@ -1,10 +1,17 @@
 import Button from 'components/Button';
+import Signup from 'components/Signup';
+import { useState } from 'react';
 import { FaTwitter } from 'react-icons/fa';
 import dataEnter from './data_enter';
 import styles from './styles.module.scss';
 import twitterLogo from './twitterLogo';
 
 const Enter = () => {
+  const [signupClicked, setSignupClicked] = useState(false);
+
+  const onClickSignup = () => setSignupClicked(true);
+  console.log({ signupClicked });
+
   function renderFooterItems() {
     // eslint-disable-next-line react/no-array-index-key
     return dataEnter.map((v, i) => <span key={i}>{v}</span>);
@@ -34,7 +41,7 @@ const Enter = () => {
 
           <div className={styles.footer}>
             <div className={styles.buttons}>
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="lg" onClick={onClickSignup}>
                 Kaydol
               </Button>
 
@@ -47,6 +54,7 @@ const Enter = () => {
       </main>
 
       <nav>{renderFooterItems()}</nav>
+      {signupClicked && <Signup />}
     </section>
   );
 };

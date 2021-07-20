@@ -3,11 +3,12 @@ import styles from './styles.module.scss';
 
 /* eslint-disable */
 const Button = (props) => {
-  const { children, variant, size, type } = props;
+  const { children, variant, size, type, ...args } = props;
 
   return (
     <button
       type={type}
+      {...args}
       className={`${styles.button} ${styles[variant]} ${styles[size]}  `}
     >
       {children}
