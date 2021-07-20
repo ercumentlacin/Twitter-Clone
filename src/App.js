@@ -1,18 +1,19 @@
-import Header from 'components/Header';
-import Feed from 'components/Feed';
-import Widgets from 'components/Widgets';
-
-import styles from './app.module.scss';
+import Enter from 'pages/Enter';
+import Home from 'pages/Home';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className={styles.wrapper}>
-      <Header />
-      <div className={styles.main}>
-        <Feed />
-        <Widgets />
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route path="/">
+          <Enter />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

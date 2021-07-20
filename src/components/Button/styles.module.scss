@@ -7,6 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  max-width: 380px;
+  min-height: 48px;
 }
 
 .primary {
@@ -17,6 +20,21 @@
   &:hover {
     transition: all 0.3s ease-in-out;
     background-color: rgb(26, 145, 218);
+  }
+}
+
+.secondary {
+  background-color: white;
+  border: 1px solid hsl(203deg, 89%, 53%);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 28px;
+
+  color: hsl(203deg, 89%, 53%);
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(29, 161, 242, 0.1);
   }
 }
 
