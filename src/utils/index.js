@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable import/prefer-default-export */
 export const getTimeBetweendSecond = ({ start, end = Date.now() }) => {
   const diff = end - start;
@@ -14,4 +15,25 @@ export const getTimeBetweendSecond = ({ start, end = Date.now() }) => {
   if (hours > 0) return { time: hours, key: 's' };
   if (seconds > 0) return { time: Math.floor(seconds / 60), key: 'd' };
   return { time: 1, key: 'd' };
+};
+
+export const loadUser = () => {
+  try {
+    const serialzedUser = localStorage.getItem('user');
+    if (serialzedUser === null) {
+      return undefined;
+    }
+    return JSON.parse(serialzedUser);
+  } catch (error) {
+    return undefined;
+  }
+};
+
+export const saveUser = (user) => {
+  try {
+    const serialzedUser = JSON.stringify(user);
+    localStorage.setItem('user', serialzedUser);
+  } catch (error) {
+    return undefined;
+  }
 };

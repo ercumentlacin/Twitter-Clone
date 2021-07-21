@@ -5,8 +5,10 @@ import styles from './styles.module.scss';
 const Widgets = () => {
   return (
     <aside className={styles.wrapper}>
-      <SearchInput />
-      <Trends />
+      <div className={styles.container}>
+        <SearchInput />
+        <Trends />
+      </div>
     </aside>
   );
 };
