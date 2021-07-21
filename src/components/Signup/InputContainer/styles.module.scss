@@ -76,3 +76,21 @@
     }
   }
 }
+.length {
+  > label {
+    padding-top: 8px;
+    height: auto;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .title {
+      color: rgba(29, 161, 242, 1);
+      font-size: small;
+      line-height: 16px;
+    }
+
+    .count {
+      display: block;
+    }
+  }
+}

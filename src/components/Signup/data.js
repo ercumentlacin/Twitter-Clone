@@ -17,4 +17,10 @@ export const dataInput = [
     title: 'Email',
     count: 49,
   },
+  {
+    name: 'password',
+    type: 'password',
+    title: 'Şifre',
+    count: 49,
+  },
 ];
