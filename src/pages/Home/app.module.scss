@@ -1,11 +1,28 @@
+@import 'mixins';
+
 .wrapper {
   display: flex;
+  height: 100vh;
+  max-height: 100vh;
+  position: relative;
+  width: 100%;
+  justify-content: center;
 
   .main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
+    height: 100vh;
+    max-height: 100vh;
     width: 990px;
+  }
+}
+@include respond-to('xl') {
+  .wrapper {
+    .main {
+      width: auto;
+      flex: 1;
+    }
   }
 }

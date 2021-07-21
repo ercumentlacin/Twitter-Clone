@@ -9,3 +9,12 @@
     width: 990px;
   }
 }
+
+@include respond-to('xl') {
+  .wrapper {
+    .main {
+      width: auto;
+      flex: 1;
+    }
+  }
+}

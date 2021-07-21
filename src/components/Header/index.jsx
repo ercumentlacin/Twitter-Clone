@@ -5,8 +5,10 @@ import styles from './styles.module.scss';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <Navigation />
-      <ButtonUser />
+      <div className={styles.container}>
+        <Navigation />
+        <ButtonUser />
+      </div>
     </header>
   );
 };

@@ -1,5 +1,9 @@
 .wrapper {
   position: sticky;
+  border-left: 1px solid rgb(56, 68, 77);
+  border-right: 1px solid rgb(56, 68, 77);
+  top: 0;
+  background-color: #15202b;
 
   display: flex;
   justify-content: space-between;

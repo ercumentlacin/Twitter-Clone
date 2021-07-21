@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .nav {
   margin-top: 1rem;
 
@@ -30,5 +32,18 @@
     justify-content: flex-start;
     margin-bottom: 16px;
     margin-top: 16px;
+  }
+
+  .changeIcon {
+    @include centerForce;
+    justify-content: flex-start;
+    button {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 20px;
+    }
   }
 }

@@ -1,13 +1,28 @@
+@import 'mixins';
+
 .header {
-  width: 604px;
   padding-inline: 12px;
   height: 100vh;
-
-  position: sticky;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-shrink: 2;
 
   max-width: 251px;
+  width: 100%;
+  position: relative;
+
+  .container {
+    position: fixed;
+    max-width: 251px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+}
+
+@include respond-to('lg') {
+  .header {
+    max-width: 60px;
+    margin-right: 2rem;
+  }
 }
