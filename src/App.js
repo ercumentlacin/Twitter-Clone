@@ -7,16 +7,17 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import store from 'store';
 
 function App() {
-  const {
-    user: { user },
-  } = useSelector((state) => state);
+  const { user } = useSelector((state) => state);
   console.log(user);
+  console.log(store.getState().user);
+
   return (
     <Router>
       <Switch>
-        {!user ? (
+        {!user.user ? (
           <>
             <Route path="/">
               <Enter />

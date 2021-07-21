@@ -2,6 +2,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { loadUser, saveUser } from 'utils';
 import rootReducer from './reducers';
 
 const middleware = applyMiddleware(logger, thunk);
@@ -18,6 +19,12 @@ const enhancer = composeEnhancers(
   // other store enhancers if any
 );
 
-const store = createStore(rootReducer, enhancer);
+const persistedUser = loadUser();
+
+const store = createStore(rootReducer, { user: persistedUser }, enhancer);
+
+store.subscribe(() => {
+  saveUser(store.getState().user);
+});
 
 export default store;
