@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-case-declarations */
 
@@ -41,8 +42,8 @@ const SelectContainer = ({ title, name }) => {
   }
 
   function options() {
-    return data().map((i) => (
-      <option key={i} value={i}>
+    return data().map((i, key) => (
+      <option key={key} value={i}>
         {i}
       </option>
     ));
@@ -54,9 +55,7 @@ const SelectContainer = ({ title, name }) => {
         <span>{title}</span>
       </label>
 
-      <select name={name} id="">
-        {options()}
-      </select>
+      <select name={name}>{options()}</select>
 
       <span className={styles.focus} />
 

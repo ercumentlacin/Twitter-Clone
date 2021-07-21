@@ -1,17 +1,38 @@
 import Enter from 'pages/Enter';
 import Home from 'pages/Home';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 
 function App() {
+  const {
+    user: { user },
+  } = useSelector((state) => state);
+  console.log(user);
   return (
     <Router>
       <Switch>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/">
-          <Enter />
-        </Route>
+        {!user ? (
+          <>
+            <Route path="/">
+              <Enter />
+            </Route>
+
+            <Route path="*">
+              <Redirect to="/" />
+            </Route>
+          </>
+        ) : (
+          <>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </>
+        )}
       </Switch>
     </Router>
   );
