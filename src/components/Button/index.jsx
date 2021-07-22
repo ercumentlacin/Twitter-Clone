@@ -9,7 +9,7 @@ const Button = (props) => {
     <button
       type={type}
       {...args}
-      className={`${styles.button} ${styles[variant]} ${styles[size]}  `}
+      className={`${styles.button} ${styles[variant]} ${styles[size]}`}
     >
       {children}
     </button>

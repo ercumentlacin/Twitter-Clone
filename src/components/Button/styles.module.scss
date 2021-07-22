@@ -58,3 +58,10 @@
   padding-right: 32px;
   width: 90%;
 }
+
+.button:disabled,
+.button[disabled] {
+  cursor: not-allowed;
+  pointer-events: none !important;
+  opacity: 0.5;
+}
