@@ -2,20 +2,23 @@ import Button from 'components/Button';
 import Signup from 'components/Signup';
 import { useState } from 'react';
 import { FaTwitter } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 import dataEnter from './data_enter';
 import styles from './styles.module.scss';
 import twitterLogo from './twitterLogo';
 
 const Enter = () => {
   const [signupClicked, setSignupClicked] = useState(false);
-
-  const onClickSignup = () => setSignupClicked(true);
-  console.log({ signupClicked });
+  const history = useHistory();
 
   function renderFooterItems() {
     // eslint-disable-next-line react/no-array-index-key
     return dataEnter.map((v, i) => <span key={i}>{v}</span>);
   }
+
+  const onClickSignup = () => setSignupClicked(true);
+
+  const onClickLogin = () => history.push('/login');
 
   return (
     <section className={styles.wrapper}>
@@ -45,7 +48,7 @@ const Enter = () => {
                 Kaydol
               </Button>
 
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="lg" onClick={onClickLogin}>
                 Giriş Yap
               </Button>
             </div>

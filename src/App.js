@@ -1,5 +1,6 @@
 import Enter from 'pages/Enter';
 import Home from 'pages/Home';
+import Login from 'pages/Login';
 import { useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
@@ -19,8 +20,12 @@ function App() {
       <Switch>
         {!user.user ? (
           <>
-            <Route path="/">
+            <Route exact path="/">
               <Enter />
+            </Route>
+
+            <Route path="/login">
+              <Login />
             </Route>
 
             <Route path="*">
@@ -31,6 +36,10 @@ function App() {
           <>
             <Route exact path="/">
               <Home />
+            </Route>
+
+            <Route path="/login">
+              <Redirect to="/" />
             </Route>
           </>
         )}

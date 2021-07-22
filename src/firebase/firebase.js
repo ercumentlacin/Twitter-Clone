@@ -11,7 +11,8 @@ const {
   REACT_APP_APP_ID,
 } = process.env;
 
-firebase.initializeApp({
+// eslint-disable-next-line no-unused-vars
+const firebaseApp = firebase.initializeApp({
   apiKey: REACT_APP_API_KEY,
   authDomain: REACT_APP_AUTH_DOMAIN,
   projectId: REACT_APP_PROJECT_ID,
