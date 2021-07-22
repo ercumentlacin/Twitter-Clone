@@ -5,6 +5,7 @@ import { ImParagraphLeft } from 'react-icons/im';
 import { GrEmoji, GrPlan } from 'react-icons/gr';
 import Button from 'components/Button';
 import firebase from 'firebase';
+import { useSelector } from 'react-redux';
 import { db } from '../../firebase/firebase';
 
 import styles from './styles.module.scss';
@@ -17,6 +18,9 @@ const TweetInput = () => {
   };
   const [tweet, setTweet] = useState(INITIAL_TWEET_STATE);
 
+  const { user } = useSelector((state) => state);
+  const oUser = user?.user;
+
   const onChangeTweet = (e) => {
     setTweet({ ...tweet, [e.target.name]: e.target.value });
   };
@@ -25,10 +29,11 @@ const TweetInput = () => {
     e.preventDefault();
 
     await db.collection('tweets').add({
-      name: 'Ercüment Laçın',
+      name: oUser.displayName,
       description: 'This is a test tweet',
       message: tweet.message,
-      photoUrl: '',
+      photoUrl: oUser.photoURL,
+      email: oUser.email,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       like: [],
       retweet: [],
@@ -47,7 +52,10 @@ const TweetInput = () => {
   return (
     <form onSubmit={onTweetSubmit} className={styles.wrapper}>
       <div className={styles.imgArea}>
-        <img src="assets/images/user_picture.jpg" alt="user" />
+        <img
+          src={`${oUser.photoURL ?? 'assets/images/user_picture.jpg'}`}
+          alt="user"
+        />
       </div>
       <div className={styles.right}>
         <div className={styles.textArea}>
@@ -64,7 +72,12 @@ const TweetInput = () => {
         </div>
         <div className={styles.buttons}>
           <div className={styles.left}>{renderButtons()}</div>
-          <Button variant="primary" size="md" type="submit">
+          <Button
+            disabled={!tweet.message.length}
+            variant="primary"
+            size="md"
+            type="submit"
+          >
             Tweetle
           </Button>
         </div>

@@ -32,6 +32,8 @@ const Feed = () => {
     return null;
   }
 
+  console.log(tweets);
+
   return (
     <main className={styles.wrapper}>
       <PageHead title="Anasayfa" icon="WiStars" />

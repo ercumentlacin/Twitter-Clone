@@ -18,6 +18,9 @@
       border-radius: 50%;
       box-shadow: rgba(0, 0, 0, 2%) 0px 0px 2px inset;
       transition: all 0.3s ease-in-out;
+      height: 43px;
+      width: 43px;
+      object-fit: cover;
 
       &:hover {
         background-color: rgba(26, 25, 25, 0.15);
