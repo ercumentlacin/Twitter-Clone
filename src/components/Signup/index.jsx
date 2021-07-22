@@ -31,7 +31,9 @@ const Signup = () => {
     ));
   }
 
-  const onClickSignup = () => {
+  const onClickSignup = (e) => {
+    e.preventDefault();
+
     const { name, email, password } = form;
     if (name.length && email.length && password.length) {
       auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
@@ -81,7 +83,12 @@ const Signup = () => {
               <div className={styles.selectArea}>{renderSelects()}</div>
 
               <div className={styles.buttonArea}>
-                <Button onClick={onClickSignup} variant="primary" size="lg">
+                <Button
+                  onClick={onClickSignup}
+                  variant="primary"
+                  size="lg"
+                  type="submit"
+                >
                   İleri
                 </Button>
               </div>
