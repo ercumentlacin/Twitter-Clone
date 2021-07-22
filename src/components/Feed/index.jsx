@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PageHead from 'components/PageHead';
 import TweetArea from 'components/TweetArea';
 import TweetInput from 'components/TweetInput';
+import FlipMove from 'react-flip-move';
 import { db } from '../../firebase/firebase';
 import styles from './styles.module.scss';
 
@@ -42,7 +43,7 @@ const Feed = () => {
 
       <div className={styles.clear} />
 
-      {renderTweets()}
+      <FlipMove>{renderTweets()}</FlipMove>
     </main>
   );
 };
