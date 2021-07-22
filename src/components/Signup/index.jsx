@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { FaTwitter } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { actionLogin } from 'store/actions/user';
-import { auth } from 'firebase/firebase';
+import { auth } from '../../firebase/firebase';
 import profilePic from '../../assets/images/avatar.jpg';
 import { dataInput, dataSelect } from './data';
 import InputContainer from './InputContainer';
@@ -39,6 +39,7 @@ const Signup = () => {
           .updateProfile({
             displayName: name,
             photoURL: profilePic,
+            userId: userAuth.uid,
           })
           .then(() => {
             dispatch(
@@ -47,6 +48,7 @@ const Signup = () => {
                 password: userAuth.user.password,
                 displayName: name,
                 photoURL: profilePic,
+                userId: userAuth.user.uid,
               })
             );
           })

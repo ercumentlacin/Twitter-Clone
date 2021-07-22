@@ -32,6 +32,7 @@ const Login = () => {
               password: result.user.password,
               displayName: result.user.displayName,
               photoURL: result.user.photoURL,
+              userId: result.user?.uid,
             })
           );
           setForm({ email: '', password: '' });

@@ -6,6 +6,7 @@ import { GrEmoji, GrPlan } from 'react-icons/gr';
 import Button from 'components/Button';
 import firebase from 'firebase';
 import { useSelector } from 'react-redux';
+import { uuid } from 'uuidv4';
 import { db } from '../../firebase/firebase';
 
 import styles from './styles.module.scss';
@@ -21,6 +22,8 @@ const TweetInput = () => {
   const { user } = useSelector((state) => state);
   const oUser = user?.user;
 
+  console.log({ oUser });
+
   const onChangeTweet = (e) => {
     setTweet({ ...tweet, [e.target.name]: e.target.value });
   };
@@ -29,6 +32,8 @@ const TweetInput = () => {
     e.preventDefault();
 
     await db.collection('tweets').add({
+      userId: oUser?.userId,
+      id: uuid(),
       name: oUser.displayName,
       description: 'This is a test tweet',
       message: tweet.message,
