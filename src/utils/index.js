@@ -37,3 +37,8 @@ export const saveUser = (user) => {
     return undefined;
   }
 };
+
+export const emailToUserName = (email) => {
+  const userName = email.split('@')[0];
+  return userName.toLowerCase();
+};
