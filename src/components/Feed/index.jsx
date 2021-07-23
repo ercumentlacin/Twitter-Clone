@@ -1,33 +1,13 @@
-import { useEffect, useState } from 'react';
 import PageHead from 'components/PageHead';
 import TweetArea from 'components/TweetArea';
 import TweetInput from 'components/TweetInput';
 import FlipMove from 'react-flip-move';
 import Spinner from 'components/Spinner';
-import { db } from '../../firebase/firebase';
+import GetTweets from 'services/GetTweets';
 import styles from './styles.module.scss';
 
 const Feed = () => {
-  const [tweets, setTweets] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    db.collection('tweets')
-      .orderBy('timestamp', 'desc')
-      .onSnapshot(
-        async (snapshot) => {
-          await setTweets(
-            snapshot.docs.map((t) => ({
-              id: t.id,
-              data: t.data(),
-            }))
-          );
-          setLoading(false);
-        },
-        (error) => console.error(error),
-        (onCompletion) => console.log(onCompletion)
-      );
-  }, []);
+  const { tweets, loading } = GetTweets();
 
   function renderTweets() {
     if (loading) return <Spinner />;

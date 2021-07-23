@@ -30,10 +30,11 @@ const TweetInput = () => {
 
   const onTweetSubmit = async (e) => {
     e.preventDefault();
+    const id = uuid();
 
-    await db.collection('tweets').add({
+    await db.collection('tweets').doc(id).set({
+      id,
       userId: oUser?.userId,
-      id: uuid(),
       name: oUser.displayName,
       description: 'This is a test tweet',
       message: tweet.message,
