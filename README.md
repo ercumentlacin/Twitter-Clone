@@ -3,9 +3,9 @@
 ![React JS](https://img.shields.io/badge/ReactJS-informational?style=flat-square&logo=react)
 ![Firebase](https://img.shields.io/badge/Firebase-orange?style=flat-square&logo=firebase)
 ![Redux](https://img.shields.io/badge/Redux-blueviolet?style=flat-square&logo=redux)
-![Sass](https://img.shields.io/badge/Sass-inactive?style=flat-square&logo=sass)
+![Sass](https://img.shields.io/badge/Sass-black?style=flat-square&logo=sass)
 ![Eslint](https://img.shields.io/badge/Eslint-informational?style=flat-square&logo=eslint)
-![Prettier](https://img.shields.io/badge/Prettier-inactive?style=flat-square&logo=prettier)
+![Prettier](https://img.shields.io/badge/Prettier-black?style=flat-square&logo=prettier)
 
 You can register and log in with your email address and tweet at the same time. Improvements will continue, I would be glad if you stars.
 
