@@ -3,23 +3,26 @@ import PageHead from 'components/PageHead';
 import TweetArea from 'components/TweetArea';
 import TweetInput from 'components/TweetInput';
 import FlipMove from 'react-flip-move';
+import Spinner from 'components/Spinner';
 import { db } from '../../firebase/firebase';
 import styles from './styles.module.scss';
 
 const Feed = () => {
   const [tweets, setTweets] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     db.collection('tweets')
       .orderBy('timestamp', 'desc')
       .onSnapshot(
-        (snapshot) => {
-          return setTweets(
+        async (snapshot) => {
+          await setTweets(
             snapshot.docs.map((t) => ({
               id: t.id,
               data: t.data(),
             }))
           );
+          setLoading(false);
         },
         (error) => console.error(error),
         (onCompletion) => console.log(onCompletion)
@@ -27,13 +30,18 @@ const Feed = () => {
   }, []);
 
   function renderTweets() {
+    if (loading) return <Spinner />;
     if (tweets && tweets.length) {
-      return tweets.map((v) => <TweetArea key={v.id} {...v} />);
+      return (
+        <FlipMove>
+          {tweets.map((v) => (
+            <TweetArea key={v.id} {...v} />
+          ))}
+        </FlipMove>
+      );
     }
     return null;
   }
-
-  console.log(tweets);
 
   return (
     <main className={styles.wrapper}>
@@ -43,7 +51,7 @@ const Feed = () => {
 
       <div className={styles.clear} />
 
-      <FlipMove>{renderTweets()}</FlipMove>
+      {renderTweets()}
     </main>
   );
 };
