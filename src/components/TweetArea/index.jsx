@@ -1,13 +1,22 @@
+/* eslint-disable no-unused-vars */
 import { forwardRef } from 'react';
 import { RiMoreLine } from 'react-icons/ri';
+import { uuid } from 'uuidv4';
 import { emailToUserName, getTimeBetweendSecond } from 'utils';
 import TweetButtons from './TweetButtons';
 import styles from './styles.module.scss';
 
-export default forwardRef(function TweetArea(
-  { data: { message, name, timestamp, photoUrl = '', email = '' } },
-  ref
-) {
+export default forwardRef(function TweetArea({ data }, ref) {
+  const {
+    message,
+    name,
+    timestamp,
+    photoUrl = '',
+    email = '',
+    id = uuid(),
+    userId = uuid(),
+  } = data;
+
   const untilBeforeTime = getTimeBetweendSecond({
     start: timestamp?.toDate(),
   });
@@ -38,7 +47,7 @@ export default forwardRef(function TweetArea(
 
         <div className={styles.messagesArea}>
           <article>{message}</article>
-          <TweetButtons />
+          <TweetButtons {...data} />
         </div>
       </div>
     </div>

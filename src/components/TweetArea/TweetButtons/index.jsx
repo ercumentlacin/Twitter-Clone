@@ -1,37 +1,60 @@
-import { BiMessageRounded, BiHeart } from 'react-icons/bi';
-import { FaRetweet } from 'react-icons/fa';
-import { IoShareOutline } from 'react-icons/io5';
+/* eslint-disable consistent-return */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable dot-notation */
+/* eslint-disable react/no-array-index-key */
+import { db } from '../../../firebase/firebase';
+import dataButtons from './dataButtons';
 import styles from './styles.module.scss';
 
-const TweetButtons = () => {
-  return (
-    <footer className={styles.wrapper}>
-      <div className={`${styles.button} ${styles.message}`}>
-        <div className={styles.icon}>
-          <BiMessageRounded />
+const TweetButtons = (props) => {
+  // eslint-disable-next-line no-unused-vars
+  const { id, userId, like, retweet, comment } = props;
+
+  console.log(props);
+
+  const onButtonClick = async ({ target }) => {
+    const targetName =
+      target.parentElement.getAttribute('name') ?? target.getAttribute('name');
+
+    if (targetName === 'like') {
+      const tweetRef = db.collection('tweets').doc(id);
+
+      const userThisLike = like.some((i) => i === userId);
+      const newLikeArray = userThisLike
+        ? like.filter((i) => i !== userId)
+        : [...like, userId];
+
+      return tweetRef
+        .update({
+          like: newLikeArray,
+        })
+        .then(() => {
+          console.log('Document successfully updated!');
+        })
+        .catch((error) => {
+          console.error('Error updating document: ', error);
+        });
+    }
+  };
+
+  function renderButtons() {
+    return dataButtons.map((v, key) => (
+      <div
+        key={key}
+        aria-hidden="true"
+        name={v.name}
+        onClick={onButtonClick}
+        className={`${styles.button} ${styles[v.style]}`}
+      >
+        <div name={v.name} className={styles.icon}>
+          <v.svg />
         </div>
-        <span className={styles.count}>15</span>
+        <span className={styles.count}>{props[v.name]?.length ?? 0}</span>
       </div>
-      <div className={`${styles.button} ${styles.retweet}`}>
-        <div className={styles.icon}>
-          <FaRetweet />
-        </div>
-        <span className={styles.count}>15</span>
-      </div>
-      <div className={`${styles.button} ${styles.like}`}>
-        <div className={styles.icon}>
-          <BiHeart />
-        </div>
-        <span className={styles.count}>15</span>
-      </div>
-      <div className={`${styles.button} ${styles.share}`}>
-        <div className={styles.icon}>
-          <IoShareOutline />
-        </div>
-        <span className={styles.count}>15</span>
-      </div>
-    </footer>
-  );
+    ));
+  }
+
+  return <footer className={styles.wrapper}>{renderButtons()}</footer>;
 };
 
 export default TweetButtons;
