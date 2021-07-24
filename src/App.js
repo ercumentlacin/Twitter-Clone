@@ -11,7 +11,11 @@ import {
 
 function App() {
   const { user } = useSelector((state) => state);
-  console.log(user);
+
+  if (process.env.NODE_ENV === 'production') {
+    // eslint-disable-next-line func-names
+    console.log = function () {};
+  }
 
   return (
     <Router>

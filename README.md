@@ -14,7 +14,7 @@ Click demo to try it by yourself!
 ## Twitter Clone Demo Link
 
 You can view the site here
-[Click Me](https://drag-drop-4b815.web.app/)
+[Click Me](https://twitter-clone-xi-coral.vercel.app/)
 
 ## Topics
 
