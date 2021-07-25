@@ -26,6 +26,8 @@ export default forwardRef(function TweetArea({ data }, ref) {
     ? photoUrl
     : 'assets/images/user_picture.jpg';
 
+  const isImage = message.includes('firebasestorage');
+
   return (
     <div ref={ref} className={styles.wrapper}>
       <div className={styles.imgArea}>
@@ -46,7 +48,11 @@ export default forwardRef(function TweetArea({ data }, ref) {
         </div>
 
         <div className={styles.messagesArea}>
-          <article>{message}</article>
+          {isImage ? (
+            <img src={message} alt="" />
+          ) : (
+            <article>{message}</article>
+          )}
           <TweetButtons {...data} />
         </div>
       </div>
