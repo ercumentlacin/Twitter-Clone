@@ -2,6 +2,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable dot-notation */
 /* eslint-disable react/no-array-index-key */
+import { useSelector } from 'react-redux';
 import { db } from '../../../firebase/firebase';
 import dataButtons from './dataButtons';
 import styles from './styles.module.scss';
@@ -9,8 +10,7 @@ import styles from './styles.module.scss';
 const TweetButtons = (props) => {
   // eslint-disable-next-line no-unused-vars
   const { id, userId, like, retweet, comment } = props;
-
-  console.log(props);
+  const currentUser = useSelector((state) => state.user.user);
 
   const onButtonClick = async ({ target }) => {
     const targetName =
@@ -19,10 +19,12 @@ const TweetButtons = (props) => {
     if (targetName === 'like') {
       const tweetRef = db.collection('tweets').doc(id);
 
-      const userThisLike = like.some((i) => i === userId);
+      const userThisLike = like.some((i) => i === currentUser.userId);
       const newLikeArray = userThisLike
         ? like.filter((i) => i !== userId)
-        : [...like, userId];
+        : [...like, currentUser.userId];
+
+      debugger;
 
       return tweetRef
         .update({
