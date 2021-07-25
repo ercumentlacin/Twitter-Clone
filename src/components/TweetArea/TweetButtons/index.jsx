@@ -22,12 +22,10 @@ const TweetButtons = (props) => {
       const userInteraction = props[targetName].some(
         (i) => i === currentUser.userId
       );
-      debugger;
+
       const newInteractionCount = userInteraction
         ? props[targetName].filter((i) => i !== currentUser.userId)
         : [...props[targetName], currentUser.userId];
-
-      debugger;
 
       return tweetRef
         .update({
