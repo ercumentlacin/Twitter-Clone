@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firebase-firestore';
+import 'firebase/storage';
 
 const {
   REACT_APP_API_KEY,
@@ -23,5 +24,7 @@ const firebaseApp = firebase.initializeApp({
 
 const db = firebase.firestore();
 const auth = firebase.auth();
+const storageRef = firebase.storage().ref();
+// const imagesRef = storageRef .child('images');
 
-export { db, auth };
+export { db, auth, storageRef };

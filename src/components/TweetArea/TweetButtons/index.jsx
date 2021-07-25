@@ -2,6 +2,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable dot-notation */
 /* eslint-disable react/no-array-index-key */
+import { useSelector } from 'react-redux';
 import { db } from '../../../firebase/firebase';
 import dataButtons from './dataButtons';
 import styles from './styles.module.scss';
@@ -9,24 +10,26 @@ import styles from './styles.module.scss';
 const TweetButtons = (props) => {
   // eslint-disable-next-line no-unused-vars
   const { id, userId, like, retweet, comment } = props;
-
-  console.log(props);
+  const currentUser = useSelector((state) => state.user.user);
 
   const onButtonClick = async ({ target }) => {
     const targetName =
       target.parentElement.getAttribute('name') ?? target.getAttribute('name');
 
-    if (targetName === 'like') {
+    if (targetName) {
       const tweetRef = db.collection('tweets').doc(id);
 
-      const userThisLike = like.some((i) => i === userId);
-      const newLikeArray = userThisLike
-        ? like.filter((i) => i !== userId)
-        : [...like, userId];
+      const userInteraction = props[targetName].some(
+        (i) => i === currentUser.userId
+      );
+
+      const newInteractionCount = userInteraction
+        ? props[targetName].filter((i) => i !== currentUser.userId)
+        : [...props[targetName], currentUser.userId];
 
       return tweetRef
         .update({
-          like: newLikeArray,
+          [targetName]: newInteractionCount,
         })
         .then(() => {
           console.log('Document successfully updated!');
