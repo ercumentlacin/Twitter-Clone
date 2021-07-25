@@ -16,19 +16,22 @@ const TweetButtons = (props) => {
     const targetName =
       target.parentElement.getAttribute('name') ?? target.getAttribute('name');
 
-    if (targetName === 'like') {
+    if (targetName) {
       const tweetRef = db.collection('tweets').doc(id);
 
-      const userThisLike = like.some((i) => i === currentUser.userId);
-      const newLikeArray = userThisLike
-        ? like.filter((i) => i !== userId)
-        : [...like, currentUser.userId];
+      const userInteraction = props[targetName].some(
+        (i) => i === currentUser.userId
+      );
+      debugger;
+      const newInteractionCount = userInteraction
+        ? props[targetName].filter((i) => i !== currentUser.userId)
+        : [...props[targetName], currentUser.userId];
 
       debugger;
 
       return tweetRef
         .update({
-          like: newLikeArray,
+          [targetName]: newInteractionCount,
         })
         .then(() => {
           console.log('Document successfully updated!');
