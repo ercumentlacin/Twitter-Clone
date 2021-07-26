@@ -14,7 +14,7 @@
 
 .primary {
   background-color: rgb(29, 161, 242);
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 28px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 8px 28px;
   transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -26,7 +26,7 @@
 .secondary {
   background-color: white;
   border: 1px solid hsl(203deg, 89%, 53%);
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 28px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 8px 28px;
 
   color: hsl(203deg, 89%, 53%);
 

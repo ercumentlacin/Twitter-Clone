@@ -12,9 +12,9 @@
     display: flex;
     align-items: center;
 
-    & .icon {
-      height: 34.75px;
+    .icon {
       width: 34.75px;
+      height: 34.75px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -25,11 +25,11 @@
       }
     }
 
-    & > .count {
+    > .count {
       margin-left: 5px;
     }
 
-    & > .icon,
+    > .icon,
     .count {
       user-select: none;
       transition: all 0.3s ease-in-out;

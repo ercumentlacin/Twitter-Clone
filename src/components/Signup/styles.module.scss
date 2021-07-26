@@ -19,10 +19,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
   //max-width: 80vw;
   max-width: 600px;
 
@@ -38,7 +34,7 @@
     border-radius: 16px;
     overflow: hidden;
 
-    & > header {
+    > header {
       width: 100%;
       @include centerForce;
       min-width: 32px;
@@ -51,9 +47,10 @@
       }
     }
 
-    & > main {
+    > main {
       width: 100%;
-      & > .top {
+
+      > .top {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -83,10 +80,10 @@
           display: flex;
         }
 
-        & > .buttonArea {
+        > .buttonArea {
           width: 100%;
           display: flex;
-          padding: 12px 32px 36px 32px;
+          padding: 12px 32px 36px;
 
           button {
             max-width: 536px;

@@ -1,20 +1,20 @@
 .wrapper {
-  position: sticky;
-  border-left: 1px solid rgb(56, 68, 77);
-  border-right: 1px solid rgb(56, 68, 77);
-  top: 0;
-  background-color: #15202b;
-  z-index: 5;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
   width: 100%;
   height: 54px;
-  padding-inline: 16px;
+  align-items: center;
+  background-color: #15202b;
 
   border-bottom: 1px solid #38444d;
+  border-left: 1px solid rgb(56, 68, 77);
+  border-right: 1px solid rgb(56, 68, 77);
+
+  display: flex;
+  top: 0;
+  justify-content: space-between;
+  padding-inline: 16px;
+  position: sticky;
+
+  z-index: 5;
 
   h1 {
     font-size: 20px;
@@ -22,17 +22,17 @@
   }
 
   .icons {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 
     svg {
-      font-size: 1.8rem;
-      box-sizing: content-box;
-      padding: 8px;
-      cursor: pointer;
-      color: rgba(29, 161, 242, 1);
       border-radius: 9999px;
+      box-sizing: content-box;
+      color: rgba(29, 161, 242, 1);
+      cursor: pointer;
+      font-size: 1.8rem;
+      padding: 8px;
       transition: all 0.3s ease-in-out;
 
       &:hover {

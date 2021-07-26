@@ -16,11 +16,11 @@
     width: 40px;
 
     img {
-      border-radius: 50%;
-      box-shadow: rgba(0, 0, 0, 2%) 0px 0px 2px inset;
-      transition: all 0.3s ease-in-out;
-      height: 43px;
       width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 2%) 0 0 2px inset;
+      transition: all 0.3s ease-in-out;
       object-fit: cover;
 
       &:hover {
@@ -82,6 +82,7 @@
 
         &:hover {
           background-color: rgba(29, 161, 242, 0.1);
+
           svg {
             color: rgb(29, 161, 242);
           }
