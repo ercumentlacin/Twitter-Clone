@@ -1,7 +1,7 @@
 .inputContainer {
   width: 100%;
   margin-right: 12px;
-  -webkit-box-flex: 2;
+  box-flex: 2;
   flex-grow: 2;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 4px;
@@ -10,7 +10,7 @@
   margin-block: 12px;
   height: 58px;
 
-  & > label {
+  > label {
     transition: all 0.3s ease-in-out;
     width: 100%;
     pointer-events: none !important;
@@ -40,7 +40,7 @@
     }
   }
 
-  & > input {
+  > input {
     width: 100%;
     padding: 8px;
     padding-top: 12px;
@@ -77,6 +77,7 @@
     }
   }
 }
+
 .length {
   > label {
     padding-top: 8px;

@@ -26,6 +26,7 @@
 
   &:hover {
     background-color: rgba(29, 161, 242, 0.1);
+
     svg {
       color: $hover;
     }
@@ -55,7 +56,7 @@ $breakpoints: (
 
   // If the key doesn't exist in the map
   @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+      + 'Available breakpoints are: #{map-keys($breakpoints)}.';
   }
 }

@@ -15,11 +15,11 @@
     cursor: pointer;
 
     img {
-      border-radius: 50%;
-      box-shadow: rgba(0, 0, 0, 2%) 0px 0px 2px inset;
-      transition: all 0.3s ease-in-out;
-      height: 43px;
       width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 2%) 0 0 2px inset;
+      transition: all 0.3s ease-in-out;
       object-fit: cover;
 
       &:hover {
@@ -37,23 +37,23 @@
     padding-top: 4px;
 
     .textArea {
+      width: 100%;
       height: 56px;
       margin: 2px;
       display: flex;
       align-items: center;
-      width: 100%;
 
       label {
         width: 100%;
-        height: -webkit-fill-available;
+        height: fill-available;
 
         textarea {
+          width: 100%;
           color: #fff;
           padding-bottom: 2px;
           padding-top: 2px;
           font-size: 20px;
           line-height: 24px;
-          width: 100%;
           word-break: break-word;
 
           &::placeholder {

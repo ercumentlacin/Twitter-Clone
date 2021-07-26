@@ -1,14 +1,14 @@
 .selectContainer {
   width: 100%;
   margin-right: 12px;
-  -webkit-box-flex: 2;
+  box-flex: 2;
   flex-grow: 2;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 4px;
   border: 1px solid rgb(207, 217, 222);
   position: relative;
 
-  & > label {
+  > label {
     pointer-events: none !important;
     padding-top: 8px;
     line-height: 16px;
@@ -19,7 +19,7 @@
     padding-inline: 8px;
   }
 
-  & > select {
+  > select {
     width: 100%;
     cursor: pointer;
     appearance: none;
@@ -31,7 +31,7 @@
     color: rgb(15, 20, 25);
   }
 
-  & > svg {
+  > svg {
     top: 50%;
     right: 12px;
     margin-top: -0.75em;
@@ -48,7 +48,7 @@
     overflow: hidden;
   }
 
-  & > select:focus + .focus {
+  > select:focus + .focus {
     position: absolute;
     top: -1px;
     left: -1px;
@@ -58,7 +58,7 @@
     border-radius: inherit;
   }
 
-  & > select:focus + .focus + svg {
+  > select:focus + .focus + svg {
     color: rgba(29, 161, 242, 1);
   }
 }

@@ -1,21 +1,21 @@
 @import '../../styles/mixins';
 
 .wrapper {
-  display: flex;
+  width: 100%;
   height: 100vh;
+  display: flex;
   max-height: 100vh;
   position: relative;
-  width: 100%;
   justify-content: center;
 
   .main {
+    width: 990px;
+
+    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    height: 100vh;
     max-height: 100vh;
-    width: 990px;
   }
 }
 @include respond-to('xl') {
